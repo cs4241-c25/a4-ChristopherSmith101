@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>CS4241 Assignment 2</title>
+    <meta charset="utf-8">
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- get rid of favicon error -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+
+<script>
+    async function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const json = {"username": username, "password": password};
+
+        let body = JSON.stringify(json);
+        console.log(body);
+
+        const response = await fetch('/login', {
+            method: 'POST',
+            body
+        })
+        console.log(response);
+
+        const text = await response.text();
+        const user = JSON.parse(text);
+        console.log(text);
+
+        if(user !== null){
+            localStorage.setItem('loggedIn', 'true');
+            localStorage.setItem('user', user.username);
+            console.log('logged in');
+            window.location.href = 'index.html';
+        } else {
+            alert('Invalid Login, Try Again or Go Away.');
+        }
+    }
+</script>
+
+<body>
+<div class="container">
+    <form onsubmit="event.preventDefault(); login();">
+        <label for="username">Username:</label><input type="text" name="username" id="username" placeholder="Enter Username">
+        <br>
+        <label for="password">Password:</label><input type="password" name="password" id="password" placeholder="Enter Password">
+        <br>
+        <button type="submit">Login</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>CS4241 Assignment 2</title>
+    <meta charset="utf-8">
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- get rid of favicon error -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Christopher Smith">
+    <meta name="description" content="Mobile Legends hero database for users.">
+</head>
+
+<script>
+    window.onload = function() {
+        const loggedIn = localStorage.getItem('loggedIn');
+        if (loggedIn !== 'true') {
+            window.location.href = 'login.html';
+        }
+
+        const addButton = document.querySelector("#addb");
+        const removeButton = document.querySelector("#delete");
+        const remove_all_button = document.querySelector("#removeb");
+        const logoutButton = document.querySelector("#logoutb");
+
+        removeButton.onclick = remove;
+        addButton.onclick = add;
+        remove_all_button.onclick = delete_all;
+        logoutButton.onclick = logout;
+    }
+</script>
+
+<body>
+<button id="logoutb">Logout</button>
+<div class="grid-container">
+    <div class="header"><h1>Mobile Legends Database</h1></div>
+    <div class="header"><h2>Add or Edit a Hero</h2></div>
+    <div class="content">
+        <form>
+            <label for="new_hero_name">New Hero: </label><input type="text" id="new_hero_name" value="Hero Name">
+            <br>
+            <label for="hero_type">Hero Type: </label>
+            <select id="hero_type" name="type">
+                <option value="tank" id="tank">Tank</option>
+                <option value="fighter" id="fighter">Fighter</option>
+                <option value="mage" id="mage">Mage</option>
+                <option value="assassin" id="assassin">Assassin</option>
+                <option value="marksman" id="marksman">Marksman</option>
+                <option value="support" id="support">Support</option>
+            </select>
+            <br>
+            <label for="hero_role">Hero Role: </label>
+            <select id="hero_role" name="type">
+                <option value="roam" id="roam">Roam</option>
+                <option value="exp" id="exp">Exp Lane</option>
+                <option value="mid" id="mid">Mid Lane</option>
+                <option value="jungle" id="jg">Jungle</option>
+                <option value="gold" id="gold">Gold Lane</option>
+            </select>
+            <br>
+            <button id="addb" >submit</button>
+        </form>
+    </div>
+    <div class="header"><h2>Remove a Hero</h2></div>
+    <div class="content">
+        <form>
+            <label for="old_hero_name">Hero to Remove: </label><input type="text" id="old_hero_name" value="Hero Name">
+            <button id="delete">submit</button>
+        </form>
+        <button id="removeb">Remove All</button>
+    </div>
+    <div class="header"><h2>Results</h2></div>
+    <div class="content"><b id="info"></b></div>
+</div>
+</body>
+</html>
