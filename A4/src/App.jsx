@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import './Add.jsx'
 import AddForm from "./Add.jsx";
@@ -37,7 +34,6 @@ async function login(event) {
 }
 
 function App() {
-  const [count, setCount] = useState(0)
     const title = "Mobile Legends Database";
     const addHeader = "Add or Edit a Hero";
     const deleteHeader = "Remove Heroes";
@@ -45,12 +41,7 @@ function App() {
 
     let user = localStorage.getItem("user");
     let loggedIn = localStorage.getItem("loggedIn");
-    // localStorage.setItem('loggedIn', 'false');
-    // localStorage.setItem('user', 'fluffy');
-    console.log(localStorage.getItem('loggedIn'));
-    console.log((localStorage.getItem('loggedIn')) === false);
-    console.log(localStorage.getItem('user'));
-    console.log(localStorage.getItem('user') === null);
+
     if(user !== '' || loggedIn === 'true') {
       return(
           <>
