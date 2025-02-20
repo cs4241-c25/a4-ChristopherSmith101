@@ -9,7 +9,7 @@ const AddForm = () => {
         return JSON.stringify(json)
     }
 
-    const URL = "http://localhost:3000/add";
+    const URL = "https://a4-server-e6j7.onrender.com/add";
     //const body = {username: localStorage.getItem('user')};
 
     const addData = async (event) => {

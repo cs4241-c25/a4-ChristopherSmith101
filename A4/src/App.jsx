@@ -13,7 +13,7 @@ async function login(event) {
   let body = JSON.stringify(json);
   console.log(body);
 
-  const response = await fetch('http://localhost:3000/login', {
+  const response = await fetch('https://a4-server-e6j7.onrender.com/login', {
     method: 'POST',
     body
   })

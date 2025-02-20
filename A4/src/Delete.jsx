@@ -1,6 +1,6 @@
 const DeleteForm = () => {
-    const URL_Delete = "http://localhost:3000/delete";
-    const URL_Delete_All = "http://localhost:3000/delete_all";
+    const URL_Delete = "https://a4-server-e6j7.onrender.com/delete";
+    const URL_Delete_All = "https://a4-server-e6j7.onrender.com/delete_all";
 
 
     const deleteAll_body = () =>
@@ -26,7 +26,7 @@ const DeleteForm = () => {
             })
             console.log(response);
         } else if(id === "removeb") {
-            const body = remove_body();
+            const body = deleteAll_body();
             const response = await fetch(URL_Delete_All, {
                 method: 'POST',
                 body: body

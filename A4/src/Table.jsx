@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 
 const LoadTable = () => {
     const [data, setData] = useState(null);
-    const URL = "http://localhost:3000/load-table";
+    const URL = "https://a4-server-e6j7.onrender.com/load-table";
 
     //let refresh = false;
 
